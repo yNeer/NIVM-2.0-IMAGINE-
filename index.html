@@ -21,14 +21,15 @@
     <div class="main-container">
       <header class="studio-header">
         <h1>🎨 NIVM 2.0 — Art Fusion Studio</h1>
+        <p>Turn your imagination into AI art</p>
       </header>
       <main class="content-wrapper" role="main">
         <div class="input-column">
           <section class="card" aria-labelledby="style-heading">
-            <h2 id="style-heading">1️⃣ Upload Art Style Image</h2>
+            <h2 id="style-heading">🎨 Step 1: Upload Art Style</h2>
             <p>
-              Choose an image for the artistic look (e.g., painting, anime,
-              cinematic). This defines colors, lighting, and texture.
+              Select an art image that defines the style, brushwork, and tone
+              you want.
             </p>
             <div class="image-uploader">
               <img
@@ -44,8 +45,8 @@
                 tabindex="0"
                 aria-label="Upload art style image"
               >
-                <span>📤</span>
-                <span>Upload Style Image</span>
+                <span>+</span>
+                <span>Add Art Image</span>
               </label>
               <input
                 type="file"
@@ -64,16 +65,16 @@
             <textarea
               id="style-text-input"
               rows="3"
-              placeholder="Describe the art style (e.g., 'Van Gogh oil painting with bright brush strokes')"
+              placeholder="Describe the art style (e.g., cyberpunk, watercolor portrait, anime inkwork)"
               aria-label="Art style description"
             ></textarea>
           </section>
 
           <section class="card" aria-labelledby="base-heading">
-            <h2 id="base-heading">2️⃣ Upload Your Base Image</h2>
+            <h2 id="base-heading">🧍‍♂️ Step 2: Upload Your Image</h2>
             <p>
-              Upload your face or subject photo. The AI will preserve the
-              subject's identity while applying the new art style.
+              Upload your face or subject. AI will preserve your identity while
+              blending art style.
             </p>
             <div class="image-uploader">
               <img
@@ -89,8 +90,8 @@
                 tabindex="0"
                 aria-label="Upload base image"
               >
-                <span>📤</span>
-                <span>Upload Base Image</span>
+                <span>+</span>
+                <span>Add Your Photo</span>
               </label>
               <input
                 type="file"
@@ -109,16 +110,15 @@
             <textarea
               id="base-text-input"
               rows="3"
-              placeholder="Describe how you want your look (e.g., 'soft lighting, smiling, natural skin tone')"
+              placeholder="Describe how you want to appear (e.g., soft light, realistic skin tone, happy expression)"
               aria-label="Base image description"
             ></textarea>
           </section>
 
           <section class="card" aria-labelledby="pose-heading">
-            <h2 id="pose-heading">3️⃣ Upload Pose / Action Reference (Optional)</h2>
+            <h2 id="pose-heading">🕺 Step 3: Upload Pose / Action (Optional)</h2>
             <p>
-              Add a reference for the pose, outfit, or camera angle you want to
-              copy.
+              Optional image showing the pose, outfit, or camera angle you want.
             </p>
             <div class="image-uploader">
               <img
@@ -134,8 +134,8 @@
                 tabindex="0"
                 aria-label="Upload pose reference image"
               >
-                <span>📤</span>
-                <span>Upload Pose Image</span>
+                <span>+</span>
+                <span>Add Pose Reference</span>
               </label>
               <input
                 type="file"
@@ -154,7 +154,7 @@
             <textarea
               id="pose-text-input"
               rows="3"
-              placeholder="Describe pose or mood (e.g., 'standing sideways in dramatic lighting')"
+              placeholder="Describe pose or emotion (e.g., side profile, smiling, cinematic background)"
               aria-label="Pose description"
             ></textarea>
           </section>
@@ -163,14 +163,14 @@
             <label class="checkbox-container">
               <input type="checkbox" id="print-quality-checkbox" />
               <span class="checkmark"></span>
-              Print Quality Mode (HD Output)
+              Enable Print Quality (HD Output)
             </label>
           </section>
         </div>
 
         <div class="output-column">
-          <section class="card" aria-labelledby="summary-heading">
-            <h2 id="summary-heading">⚙️ Final Prompt Summary (Auto-Generated)</h2>
+          <section class="card" id="prompt-preview-card" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">🧠 AI Prompt Preview (Auto-Generated)</h2>
             <textarea id="prompt-summary" rows="8" readonly></textarea>
           </section>
 

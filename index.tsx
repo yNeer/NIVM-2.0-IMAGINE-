@@ -88,26 +88,29 @@ function updateGenerateButtonState() {
 }
 
 function updatePromptSummary() {
-    const styleDesc = state.styleText || 'not provided';
-    const baseDesc = state.baseText || 'not provided';
-    let summary = `Blend the artistic style, colors, and textures from the first uploaded image (Style) onto the subject of the second image (Base).
-- Style description: "${styleDesc}".
-- Base image subject description: "${baseDesc}".`;
+    let summary = `Combine the style and color palette of the first image (Art Style) with the face and identity of the second image (Your Image). Always remove the background of the second (Your Image) image.`;
 
     if (state.poseImage.file) {
-        const poseDesc = state.poseText || 'not provided';
-        summary += `
-- Match the pose, composition, and mood of the third image (Pose). Pose description: "${poseDesc}".`;
+        summary += ` Mimic the gesture or mood of the third image (Pose Reference).`;
     }
 
     if (state.printQuality) {
-        summary += `
-- Final output must be a print-ready, high-resolution, ultra-detailed, and photorealistic fusion that harmonizes the art style with the subject's identity.`;
+        summary += ` Output a realistic, high-detail, print-ready fusion.`;
     } else {
-        summary += `
-- The final output should be a detailed and cohesive fusion.`;
+        summary += ` Output a detailed and cohesive fusion.`;
     }
-    promptSummaryEl.value = summary;
+    
+    const descriptions = [
+        state.styleText ? `Art Style Description: "${state.styleText}"` : '',
+        state.baseText ? `Your Image Description: "${state.baseText}"` : '',
+        state.poseText ? `Pose Reference Description: "${state.poseText}"` : ''
+    ].filter(Boolean).join('\n');
+
+    if (descriptions) {
+        summary += `\n\n--- User Descriptions ---\n${descriptions}`;
+    }
+
+    promptSummaryEl.value = summary.trim();
 }
 
 // --- EVENT HANDLERS ---

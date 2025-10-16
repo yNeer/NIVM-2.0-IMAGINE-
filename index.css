@@ -1,14 +1,16 @@
 :root {
   --font-body: 'Inter', sans-serif;
-  --bg-primary: #1E1F20;
-  --bg-secondary: #2a2b2e;
-  --bg-tertiary: #353739;
-  --border-color: #4a4b4e;
-  --text-primary: #e5e7eb;
-  --text-secondary: #9ca3af;
+  --bg-primary: #F9FBFF;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #f0f4f8;
+  --border-color: #e2e8f0;
+  --text-primary: #222;
+  --text-secondary: #555;
   --sky-blue: #40BFFF;
-  --sky-blue-hover: #60cbff;
+  --sky-blue-hover: #38A9E5;
   --error-red: #f87171;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --card-radius: 16px;
 }
 
 * {
@@ -21,7 +23,6 @@ body {
   color: var(--text-primary);
   margin: 0;
   padding: 2rem;
-  antialiased: true;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,13 +34,25 @@ body {
 
 .studio-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--sky-blue), #58c7ff);
+  border-radius: var(--card-radius);
+  color: white;
+  box-shadow: var(--card-shadow);
 }
 
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.studio-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
 }
 
 .content-wrapper {
@@ -62,9 +75,10 @@ h1 {
 
 .card {
   background-color: var(--bg-secondary);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   padding: 1.5rem;
   border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
 }
 
 .card h2 {
@@ -72,6 +86,9 @@ h1 {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .card p {
@@ -89,7 +106,7 @@ h1 {
   border-radius: 0.75rem;
   overflow: hidden;
   margin-bottom: 1rem;
-  background-color: var(--bg-tertiary);
+  background-color: var(--bg-primary);
 }
 
 .upload-label {
@@ -107,12 +124,13 @@ h1 {
 }
 
 .upload-label:hover, .upload-label:focus {
-  background-color: #3f4144;
+  background-color: #e9f5ff;
   border-color: var(--sky-blue);
 }
 
 .upload-label span:first-child {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .file-input {
@@ -170,19 +188,24 @@ textarea:focus {
   box-shadow: 0 0 0 2px rgba(64, 191, 255, 0.3);
 }
 
+#prompt-preview-card, #prompt-summary {
+  background-color: #E9F5FF;
+}
+
 #prompt-summary {
-  background-color: var(--bg-primary);
   color: var(--text-secondary);
+  border-color: #cdeaff;
 }
 
 #generate-button {
+  width: 100%;
   background-color: var(--sky-blue);
-  color: var(--bg-primary);
+  color: white;
   font-weight: 700;
   font-size: 1.1rem;
   padding: 0.8rem 1rem;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
 }
@@ -209,7 +232,7 @@ textarea:focus {
   width: 100%;
   aspect-ratio: 1 / 1;
   background-color: var(--bg-secondary);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -236,6 +259,7 @@ textarea:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  color: var(--text-primary);
 }
 
 .checkbox-container input {
@@ -258,7 +282,7 @@ textarea:focus {
 }
 
 .checkbox-container:hover input ~ .checkmark {
-  background-color: #444;
+  background-color: #ddd;
 }
 
 .checkbox-container input:checked ~ .checkmark {
